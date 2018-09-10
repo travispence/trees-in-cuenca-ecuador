@@ -1,0 +1,36 @@
+<div style="max-width: 1200px; margin: 0 auto; margin-top: 2rem;">
+	<div>The Trees in Cuenca, Ecuador</div>
+	
+	<div class="container">
+		<div class="columns">
+			<div ng-repeat="tree in trees" class="column col-4">
+				<div class="card">
+					<div class="card-image">
+						<img src="{{tree.images[0]}}" class="img-responsive">
+					</div>
+					<div class="card-header">
+						<div class="card-title h5">{{tree.nombre}}</div>
+						<div class="card-subtitle text-gray">{{tree.nombre_cientifica}}</div>
+							<div  class="card-subtitle">
+							<div><strong> Other Common Names</strong></div>
+								<span ng-repeat="n in tree.otros_nombres_comunes" class="chip">{{n}}</span>
+						</div>
+					</div>
+					<div class="card-body">
+						<p>
+							<strong>Description</strong>
+						</p>
+						<p>
+							{{tree.descripcíon ? tree.descripcíon : 'No Description Available'}}
+						</p>
+					</div>
+					<div class="card-footer">
+						<a ui-sref="treedetail({treeName: '{{tree.slug}}' })"class="btn btn-primary">Leer Más</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>

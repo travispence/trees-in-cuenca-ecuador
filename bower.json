@@ -1,0 +1,12 @@
+{
+  "name": "trees-in-cuenca-ecuador",
+  "description": "Simple AngularJS app to display information about the trees in cuenca ecuador. ",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pencetravis/angular-starter",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.7.x",
+    "angular-ui-router": "~1.0.20",
+    "angular-parse-ext": "~1.7.x"
+  }
+}
