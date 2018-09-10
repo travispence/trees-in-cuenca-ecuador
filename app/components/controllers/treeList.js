@@ -2,7 +2,7 @@
 		'use strict';
 
 
-var dataURL = "/resources/data/trees.json";
+var dataURL = "trees-in-cuenca-ecuador/app/resources/data/trees.json";
 
 angular.module('incuencaecuador.trees', [])
 	.component('treeList', {
