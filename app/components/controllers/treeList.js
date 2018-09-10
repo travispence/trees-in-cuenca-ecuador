@@ -7,7 +7,7 @@ var dataURL = "/resources/data/trees.json";
 angular.module('incuencaecuador.trees', [])
 	.component('treeList', {
 		bindings: {},
-		templateUrl: 'components/views/treeList.html',
+		templateUrl: 'app/components/views/treeList.html',
 		controller: function ($scope, $http) {
 			var $ctrl = this;
 			$ctrl.$onInit = function () {
@@ -22,7 +22,7 @@ angular.module('incuencaecuador.trees', [])
 	})
 	.component('treeDetail', {
 		bindings: {},
-		templateUrl: 'components/views/treeView.html',
+		templateUrl: 'app/components/views/treeView.html',
 		controller: function ($stateParams, $scope, $http) {
 			var $ctrl = this;
 			$ctrl.$onInit = function () {
