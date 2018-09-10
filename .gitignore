@@ -18,10 +18,10 @@ logs
 tests/*log.xml
 
 # Vendor Libs
-app/resources/bower/angular/angular.js
+#app/resources/bower/angular/angular.js
 
 # Image Assets
-app/resources/img/*.jpg
+#app/resources/img/*.jpg
 
 # Logs
 logs
