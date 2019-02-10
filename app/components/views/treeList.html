@@ -1,36 +1,58 @@
-<div style="max-width: 1200px; margin: 0 auto; margin-top: 2rem;">
-	<div>The Trees in Cuenca, Ecuador</div>
-	
+
+<header class="navbar">
+	<section class="navbar-section">
+
+		<h3 style="padding:.5rem;">Los {{trees.length}} arboles de Cuenca, Ecuador</h3>
+	</section>
+	<section class="navbar-section">
+		<div class="input-group input-inline">
+		<input class="form-input" type="text" ng-change="filter(keyword)" ng-model="keyword" placeholder="filtrar por palabra clave">
+		</div>
+	</section>
+</header>
+
+<div class="divider"></div>
+<div style="margin: 0 auto; margin-top: 2rem;">
 	<div class="container">
 		<div class="columns">
-			<div ng-repeat="tree in trees" class="column col-4">
-				<div class="card">
-					<div class="card-image">
-					<img src="trees-in-cuenca-ecuador/app/{{tree.images[0]}}" class="img-responsive">
-					</div>
-					<div class="card-header">
-						<div class="card-title h5">{{tree.nombre}}</div>
-						<div class="card-subtitle text-gray">{{tree.nombre_cientifica}}</div>
-							<div  class="card-subtitle">
-							<div><strong> Other Common Names</strong></div>
-								<span ng-repeat="n in tree.otros_nombres_comunes" class="chip">{{n}}</span>
+			<div class="column col-2 col-md-4 hide-sm">
+				<ul class="nav">
+					<li class="nav-item" ng-repeat="tree in filteredTrees">
+						<a ui-sref="treedetail({treeName: '{{tree.slug}}' })">{{tree.nombre}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="column col-10 col-md-8">
+				<div class="columns">
+					<div ng-repeat="tree in filteredTrees" style="min-width: 350px; max-width: 400px;" class="column col-xs-auto col-lg-auto">
+						<div class="card">
+							<div class="card-image">
+							<img src="app/{{tree.images[0]}}" class="img-responsive">
+							</div>
+							<div class="card-header">
+								<div class="card-title h5">{{tree.nombre}}</div>
+								<div class="card-subtitle text-gray">{{tree.nombre_cientifica}}</div>
+									<div  class="card-subtitle">
+									<div><strong> Nombres comunes</strong></div>
+										<span ng-repeat="n in tree.otros_nombres_comunes" class="chip">{{n}}</span>
+								</div>
+							</div>
+							<div class="card-body">
+								<p>
+									<strong>Descripción</strong>
+								</p>
+								<p>
+									{{tree.descripcíon ? tree.descripcíon : tree.habito ? tree.habito : 'No Description Available'}}
+								</p>
+							</div>
+							<div class="card-footer">
+								<a ui-sref="treedetail({treeName: '{{tree.slug}}' })"class="btn btn-primary">Leer Más</a>
+							</div>
 						</div>
-					</div>
-					<div class="card-body">
-						<p>
-							<strong>Description</strong>
-						</p>
-						<p>
-							{{tree.descripcíon ? tree.descripcíon : 'No Description Available'}}
-						</p>
-					</div>
-					<div class="card-footer">
-						<a ui-sref="treedetail({treeName: '{{tree.slug}}' })"class="btn btn-primary">Leer Más</a>
+		
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
 </div>

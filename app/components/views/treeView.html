@@ -2,11 +2,13 @@
     <div>AngularJS Tree application</div>
 
     <div class="container">
-        <div class="columns">
-            <div class="column col-4">
+        <div class="columns gapless">
+            <div class="column col-12">
                 <div class="card">
-                    <div class="card-image">
-                    <img src="trees-in-cuenca-ecuador/app/{{tree.images[0]}}" class="img-responsive">
+                    <div class="columns">
+                        <div class="column col-4" ng-repeat="imgsrc in tree.images">
+                            <img style="max-height: 250px;" src="app/{{imgsrc}}">
+                        </div>
                     </div>
                     <div class="card-header">
                         <div class="card-title h5">{{tree.nombre}}</div>
@@ -17,12 +19,13 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p>
-                            <strong>Description</strong>
-                        </p>
-                        <p>
-                            {{tree.descripcíon ? tree.descripcíon : 'No Description Available'}}
-                        </p>
+                        <p>Contenido del PDF</p>
+                        <section ng-repeat="key in tree.keys" ng-show="tree[key]">
+                            <strong> {{key | readable}}  </strong>
+                            <p>
+                                {{tree[key]}}
+                            </p>
+                        </section>
                     </div>
                 </div>
 

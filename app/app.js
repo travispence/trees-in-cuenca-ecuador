@@ -4,7 +4,25 @@
 	var app = angular.module('incuencaecuador', ['ui.router', 'ngParseExt',
 			'incuencaecuador.trees', 
 		])
-		.config(routeConfig);
+		.config(routeConfig)
+		.filter('match-word-plural', function() {
+			return function(items, word) {
+			  var rgx = new RegExp('\\b' + word.toLowerCase());
+			  return items.filter(function(item) {
+				if (!item['filter-terms']) { return false; }
+				var filterTerms = item['filter-terms'].toLowerCase();
+				return rgx.test(filterTerms)
+			  })
+			}
+		})
+		.filter('readable', function() {
+			return function(word) {
+			  var rgx = new RegExp('\\b' + word.toLowerCase());
+			  word = word.split('_').join(' ');
+			  word = word.charAt(0).toUpperCase() + word.slice(1)
+			  return word;
+			}
+		})
 
 	routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
